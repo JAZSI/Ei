@@ -1,4 +1,4 @@
-# Discord Bot Template
+# Ei Discord Bot
 
 ## Prerequisites
 

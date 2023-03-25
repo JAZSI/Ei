@@ -2,16 +2,21 @@
     "prefix": ".",
     "ownerID": "824281710212284426",
     "color": "#9E74D2",
+    "port": "80",
     "inviteURL": "https://discord.gg",
     "sourceURL": "https://github.com/JAZSI/Discord-v14-template/",
     "supportURL": "https://discord.gg/",
     "websiteURL": "https://jazsi.github.io/",
     "debug": false,
     "shard": false,
+    "enableNSFW": false,
     "category": {
+        "anime": "🎬",
         "context": "📄",
+        "genshin impact": "🕹️",
         "miscellaneous": "📦",
         "moderation": "🛡️",
+        "nsfw": "🔞",
         "owner": "👑"
     },
     "ignoredCategories": []

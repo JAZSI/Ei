@@ -1,8 +1,10 @@
+const express = require('express');
 const path = require('node:path');
 const fs = require('node:fs');
 
 module.exports = (client) => {
     // Prefix Command Handler
+    const prefixCommands = {};
     const prefixPath = path.join(__dirname, 'prefix');
     fs.readdirSync(prefixPath).forEach((dir) => {
         const commands = fs
@@ -11,6 +13,13 @@ module.exports = (client) => {
         for (const file of commands) {
             const command = require(`./prefix/${dir}/${file}`);
             command.category = dir;
+            if (!(dir in prefixCommands)) {
+                prefixCommands[dir] = [];
+            }
+            prefixCommands[dir].push({
+                name: command.name,
+                description: command.description,
+            });
             client.prefix.set(command.name, command);
             if (command.aliases && Array.isArray(command.aliases)) {
                 command.aliases.forEach((alias) =>
@@ -21,6 +30,7 @@ module.exports = (client) => {
     });
 
     // Slash Command Handler
+    const slashCommands = {};
     const commandsPath = path.join(__dirname, 'commands');
     fs.readdirSync(commandsPath).forEach((dir) => {
         const commands = fs
@@ -30,6 +40,13 @@ module.exports = (client) => {
             const command = require(`./commands/${dir}/${file}`);
             command.category = dir;
             if ('data' in command && 'run' in command) {
+                if (!(dir in slashCommands)) {
+                    slashCommands[dir] = [];
+                }
+                slashCommands[dir].push({
+                    name: command.data.name,
+                    description: command.data.description,
+                });
                 client.commands.set(command.data.name, command);
             } else {
                 console.log(
@@ -107,5 +124,38 @@ module.exports = (client) => {
                 client.on(event.name, event.run.bind(null, client));
             }
         }
+    });
+
+    // Website
+    const app = express();
+    const port = client.config.port || process.env.PORT;
+
+    app.use(express.static(__dirname + '/website'));
+
+    // app.use((req, res, next) => {
+    //     console.log(`[ WEBSITE ] : Method: ${req.method} | URL: ${req.url} | Status: ${res.statusCode} | Request from: ${req.ip}`);
+    //     next();
+    // });
+
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, 'website', 'index.html'));
+    });
+
+    app.get('/prefixcommands', (req, res) => {
+        res.json(prefixCommands);
+    });
+
+    app.get('/slashcommands', (req, res) => {
+        res.json(slashCommands);
+    });
+
+    app.listen(port, () => {
+        console.log(
+            `[ WEBSITE ] : Web server online! (To access the website, go to http://localhost:${port})`
+        );
+    });
+
+    app.use((req, res) => {
+        res.status(404).send('404: Page not found');
     });
 };
