@@ -1,0 +1,26 @@
+{
+    "name": "discord-v14-template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "author": "Jaszi",
+    "license": "MIT",
+    "dependencies": {
+        "discord.js": "^14.7.1",
+        "dotenv": "^16.0.3",
+        "glob": "7.2.3",
+        "moment": "^2.29.4",
+        "ms": "^2.1.3"
+    },
+    "devDependencies": {
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "prettier": "^2.8.4"
+    }
+}
