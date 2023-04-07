@@ -4,103 +4,191 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Ei Bot</title>
-        <link rel="icon" href="https://avatars.githubusercontent.com/u/79008835" />
+        <link
+            rel="icon"
+            href="https://avatars.githubusercontent.com/u/79008835"
+        />
 
         <!-- CSS -->
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v6.3.0/css/all.css"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <link rel="stylesheet" href="./style.css" />
+
+        <!-- Style -->
+        <style>
+            @font-face {
+                font-family: Nunito;
+                src: url('./assets/fonts/Nunito.ttf');
+            }
+
+            @font-face {
+                font-family: Dosis;
+                src: url('./assets/fonts/Dosis.ttf');
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Nunito', sans-serif;
+            }
+
+            /* Scroll Bar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #ffdbfc;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #df99ff;
+            }
+
+            /* Floating Image effect */
+            .floating-image {
+                animation: floating 3s ease-in-out infinite;
+            }
+
+            @keyframes floating {
+                0% {
+                    transform: translatey(0px);
+                }
+                50% {
+                    transform: translatey(-20px);
+                }
+                100% {
+                    transform: translatey(0px);
+                }
+            }
+        </style>
     </head>
     <body>
-        <!-- Disable Mobile Version -->
-        <div class="mobile">
-            <p>
-                Sorry, this website is not available on mobile devices. Please
-                access it on a desktop computer or tablet.
-            </p>
-        </div>
-
         <!-- Navbar -->
-        <div class="nav-container">
-            <nav>
-                <img src="https://avatars.githubusercontent.com/u/79008835" alt="logo" />
-                <div class="nav-title">Ei Bot</div>
-                <div>
-                    <a href="#home">Home</a>
-                    <a href="#features">Features</a>
-                    <a href="#commands">Commands</a>
+        <nav class="px-4 py-3 sticky top-0 z-50 bg-white">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img
+                        class="w-8 h-8 rounded-full mr-2"
+                        src="./assets/images/icon.png"
+                        alt="Ei Logo"
+                    />
+                    <a
+                        class="text-gray-900 text-xl font-bold"
+                        href="./invite.html"
+                        >Ei Bot</a
+                    >
                 </div>
-            </nav>
-        </div>
-
-        <!-- Home -->
-        <section id="home" class="home">
-            <div class="left">
-                <h1>Ei Discord Bot Website</h1>
-                <p>
-                    This website is dedicated to providing information about my
-                    Discord bot for anime fans.
-                </p>
-                <div class="buttons">
-                    <a href="https://discord.gg/example" class="btn btn-primary"
-                        >Join our Discord Server</a
+                <div class="flex items-center space-x-4">
+                    <a
+                        class="text-gray-900 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 rounded-lg py-1 px-3 transition-colors duration-200 ease-in-out"
+                        href="#home"
+                        >Home</a
                     >
                     <a
-                        href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot"
-                        class="btn btn-secondary"
-                        >Invite the Bot</a
+                        class="text-gray-900 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 rounded-lg py-1 px-3 transition-colors duration-200 ease-in-out"
+                        href="#features"
+                        >Features</a
+                    >
+                    <a
+                        class="text-gray-900 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 rounded-lg py-1 px-3 transition-colors duration-200 ease-in-out"
+                        href="#commands"
+                        >Commands</a
                     >
                 </div>
             </div>
-            <div class="right">
-                <img src="./assets/Ei.png" alt="Ei" />
+        </nav>
+
+        <!-- Home -->
+        <section class="bg-white py-16" id="home">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between"
+            >
+                <div class="md:w-1/2">
+                    <h2
+                        class="text-3xl font-extrabold text-gray-900 sm:text-4xl"
+                    >
+                        Welcome to Ei Bot!
+                    </h2>
+                    <p class="mt-4 text-gray-600 text-xl">
+                        Ei is a versatile and fun anime-themed discord bot that
+                        can enhance any server's anime experience.
+                    </p>
+                    <div
+                        class="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+                    >
+                        <a
+                            href="./invite.html"
+                            class="w-full md:w-auto flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-purple-900 hover:bg-purple-800 md:px-6 md:py-3"
+                        >
+                            Invite the bot
+                        </a>
+                        <a
+                            href="./invite.html"
+                            class="w-full md:w-auto flex items-center justify-center px-4 py-2 border border-purple-900 text-base font-medium rounded-md text-purple-900 bg-white hover:text-white hover:bg-purple-900 md:px-6 md:py-3"
+                        >
+                            Join our Discord Server
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <img
+                        class="floating-image w-full object-cover"
+                        src="./assets/images/Ei.png"
+                        alt="Ei Bot Image"
+                    />
+                </div>
             </div>
         </section>
 
         <!-- Features -->
-        <section id="features" class="features">
-            <h1>Features</h1>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Search for anime and manga</h3>
-                        <p class="card-text">
-                            Quickly find information about your favorite anime
-                            and manga series.
+        <section class="bg-gray-100 py-16" id="features">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2
+                    class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8"
+                >
+                    Features
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div
+                        class="bg-white rounded-lg shadow-lg flex flex-col justify-center p-6"
+                    >
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">
+                            Search for anime and manga
+                        </h3>
+                        <p class="text-gray-600">
+                            Ei Bot can help you find information about anime and
+                            manga. Just use the appropriate command and Ei Bot
+                            will search the internet for you!
                         </p>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-gears"></i>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Moderation</h3>
-                        <p class="card-text">
-                            Protect your Discord server with Ei's robust
-                            moderation and powerful commands to improve and
-                            speed up moderation.
+                    <div
+                        class="bg-white rounded-lg shadow-lg flex flex-col justify-center p-6"
+                    >
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">
+                            Moderation
+                        </h3>
+                        <p class="text-gray-600">
+                            Ei Bot can also help you moderate your Discord
+                            server. You can use commands to kick or ban users,
+                            delete messages, and more!
                         </p>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-icons"></i>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Use animated emojis</h3>
-                        <p class="card-text">
-                            Express yourself with our collection of animated
-                            emojis, even without Nitro.
+                    <div
+                        class="bg-white rounded-lg shadow-lg flex flex-col justify-center p-6"
+                    >
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">
+                            Animated emojis
+                        </h3>
+                        <p class="text-gray-600">
+                            With Ei Bot, you can use animated emojis in your
+                            messages even if you don't have a Nitro
+                            subscription.
                         </p>
                     </div>
                 </div>
@@ -108,33 +196,122 @@
         </section>
 
         <!-- Commands -->
-        <section id="commands" class="commands">
-            <h1>Commands</h1>
-            <h2>Prefix Commands</h2>
-            <table id="prefixTable">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Commands</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-
-            <h2>Slash Commands</h2>
-            <table id="slashTable">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Commands</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <section class="bg-white py-16" id="commands">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2
+                    class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8"
+                >
+                    Commands
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">
+                            Prefix Commands
+                        </h3>
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2">Command</th>
+                                    <th class="px-4 py-2">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="prefixTable">
+                                <!-- Prefix commands will be added dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">
+                            Slash Commands
+                        </h3>
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2">Command</th>
+                                    <th class="px-4 py-2">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="slashTable">
+                                <!-- Slash commands will be added dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-400 py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-sm">
+                    <p>
+                        Source code available on
+                        <a href="https://github.com/JAZSI/Ei">GitHub</a>
+                    </p>
+                    <p>
+                        Created by <a href="https://github.com/JAZSI">Jaszi</a>
+                    </p>
+                </div>
+                <div class="text-sm">
+                    <a
+                        href="./invite.html"
+                        class="text-purple-500 hover:text-purple-400"
+                        >Join our Discord server</a
+                    >
+                </div>
+            </div>
+        </footer>
+
         <!-- Scripts -->
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Jquery -->
         <script src="./jquery-3.6.3.js"></script>
-        <script src="./script.js"></script>
+        <!-- script.js -->
+        <script>
+            $(function () {
+                $.getJSON('/prefixcommands', function (prefixData) {
+                    for (const category in prefixData) {
+                        let categoryCommands = prefixData[category];
+                        $('#prefixTable').append(`
+                            <tr>
+                            <td class="border px-4 py-2">${category.toUpperCase()}</td>
+                            <td class="border px-4 py-2">
+                                <ul>
+                                ${categoryCommands
+                                    .map(
+                                        (command) =>
+                                            `<li class="mb-2"><strong>${command.name}</strong> - ${command.description}</li>`
+                                    )
+                                    .join('')}
+                                </ul>
+                            </td>
+                            </tr>
+                        `);
+                    }
+                });
+
+                $.getJSON('/slashcommands', function (slashData) {
+                    for (const category in slashData) {
+                        let categoryCommands = slashData[category];
+                        $('#slashTable').append(`
+                            <tr>
+                            <td class="border px-4 py-2">${category.toUpperCase()}</td>
+                            <td class="border px-4 py-2">
+                                <ul>
+                                ${categoryCommands
+                                    .map(
+                                        (command) =>
+                                            `<li class="mb-2"><strong>${command.name}</strong> - ${command.description}</li>`
+                                    )
+                                    .join('')}
+                                </ul>
+                            </td>
+                            </tr>
+                        `);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
